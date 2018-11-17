@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1432263439 source:d:\gdinsoo223\coding\ard\winavr\attiny13\dht11\main.c
+	<stdio.h>
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<avr/sleep.h>
+	"dht/dht.h"
+
+1428403536 d:\gdinsoo223\coding\ard\winavr\attiny13\dht11\dht\dht.h
+	<stdio.h>
+	<avr/io.h>
+

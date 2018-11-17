@@ -1,0 +1,164 @@
+
+bin\Debug\sleep.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000cc  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  00000120  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000002a  00000000  00000000  00000140  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   0000008a  00000000  00000000  0000016a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000056  00000000  00000000  000001f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000098  00000000  00000000  0000024a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000030  00000000  00000000  000002e4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000085  00000000  00000000  00000314  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	0e c0       	rjmp	.+28     	; 0x20 <__bad_interrupt>
+   4:	0d c0       	rjmp	.+26     	; 0x20 <__bad_interrupt>
+   6:	0c c0       	rjmp	.+24     	; 0x20 <__bad_interrupt>
+   8:	0b c0       	rjmp	.+22     	; 0x20 <__bad_interrupt>
+   a:	0a c0       	rjmp	.+20     	; 0x20 <__bad_interrupt>
+   c:	09 c0       	rjmp	.+18     	; 0x20 <__bad_interrupt>
+   e:	08 c0       	rjmp	.+16     	; 0x20 <__bad_interrupt>
+  10:	08 c0       	rjmp	.+16     	; 0x22 <__vector_8>
+  12:	06 c0       	rjmp	.+12     	; 0x20 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+  1c:	26 d0       	rcall	.+76     	; 0x6a <main>
+  1e:	54 c0       	rjmp	.+168    	; 0xc8 <_exit>
+
+00000020 <__bad_interrupt>:
+  20:	ef cf       	rjmp	.-34     	; 0x0 <__vectors>
+
+00000022 <__vector_8>:
+#include <avr/interrupt.h>
+#include <avr/sleep.h>
+
+ISR(WDT_vect) {
+  22:	1f 92       	push	r1
+  24:	0f 92       	push	r0
+  26:	0f b6       	in	r0, 0x3f	; 63
+  28:	0f 92       	push	r0
+  2a:	11 24       	eor	r1, r1
+  2c:	8f 93       	push	r24
+  2e:	9f 93       	push	r25
+  30:	af 93       	push	r26
+  32:	bf 93       	push	r27
+  34:	ef 93       	push	r30
+  36:	ff 93       	push	r31
+  38:	df 93       	push	r29
+  3a:	cf 93       	push	r28
+  3c:	cd b7       	in	r28, 0x3d	; 61
+  3e:	de b7       	in	r29, 0x3e	; 62
+    // Toggle PB0 output state
+    PORTB ^= 1<<PB0;
+  40:	a8 e3       	ldi	r26, 0x38	; 56
+  42:	b0 e0       	ldi	r27, 0x00	; 0
+  44:	e8 e3       	ldi	r30, 0x38	; 56
+  46:	f0 e0       	ldi	r31, 0x00	; 0
+  48:	90 81       	ld	r25, Z
+  4a:	81 e0       	ldi	r24, 0x01	; 1
+  4c:	89 27       	eor	r24, r25
+  4e:	8c 93       	st	X, r24
+}
+  50:	cf 91       	pop	r28
+  52:	df 91       	pop	r29
+  54:	ff 91       	pop	r31
+  56:	ef 91       	pop	r30
+  58:	bf 91       	pop	r27
+  5a:	af 91       	pop	r26
+  5c:	9f 91       	pop	r25
+  5e:	8f 91       	pop	r24
+  60:	0f 90       	pop	r0
+  62:	0f be       	out	0x3f, r0	; 63
+  64:	0f 90       	pop	r0
+  66:	1f 90       	pop	r1
+  68:	18 95       	reti
+
+0000006a <main>:
+
+int main(void) {
+  6a:	df 93       	push	r29
+  6c:	cf 93       	push	r28
+  6e:	cd b7       	in	r28, 0x3d	; 61
+  70:	de b7       	in	r29, 0x3e	; 62
+    // Set up PB0 mode to output
+    DDRB = 1<<DDB0;
+  72:	e7 e3       	ldi	r30, 0x37	; 55
+  74:	f0 e0       	ldi	r31, 0x00	; 0
+  76:	81 e0       	ldi	r24, 0x01	; 1
+  78:	80 83       	st	Z, r24
+
+    // temporarily prescale timer to 4s so we can measure current
+    WDTCR |= (1<<WDP3); // (1<<WDP2) | (1<<WDP0);
+  7a:	a1 e4       	ldi	r26, 0x41	; 65
+  7c:	b0 e0       	ldi	r27, 0x00	; 0
+  7e:	e1 e4       	ldi	r30, 0x41	; 65
+  80:	f0 e0       	ldi	r31, 0x00	; 0
+  82:	80 81       	ld	r24, Z
+  84:	80 62       	ori	r24, 0x20	; 32
+  86:	8c 93       	st	X, r24
+
+    // Enable watchdog timer interrupts
+    WDTCR |= (1<<WDTIE);
+  88:	a1 e4       	ldi	r26, 0x41	; 65
+  8a:	b0 e0       	ldi	r27, 0x00	; 0
+  8c:	e1 e4       	ldi	r30, 0x41	; 65
+  8e:	f0 e0       	ldi	r31, 0x00	; 0
+  90:	80 81       	ld	r24, Z
+  92:	80 64       	ori	r24, 0x40	; 64
+  94:	8c 93       	st	X, r24
+
+    sei(); // Enable global interrupts
+  96:	78 94       	sei
+
+    // Use the Power Down sleep mode
+    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  98:	a5 e5       	ldi	r26, 0x55	; 85
+  9a:	b0 e0       	ldi	r27, 0x00	; 0
+  9c:	e5 e5       	ldi	r30, 0x55	; 85
+  9e:	f0 e0       	ldi	r31, 0x00	; 0
+  a0:	80 81       	ld	r24, Z
+  a2:	87 7e       	andi	r24, 0xE7	; 231
+  a4:	80 61       	ori	r24, 0x10	; 16
+  a6:	8c 93       	st	X, r24
+
+    for (;;) {
+        sleep_mode();   // go to sleep and wait for interrupt...
+  a8:	a5 e5       	ldi	r26, 0x55	; 85
+  aa:	b0 e0       	ldi	r27, 0x00	; 0
+  ac:	e5 e5       	ldi	r30, 0x55	; 85
+  ae:	f0 e0       	ldi	r31, 0x00	; 0
+  b0:	80 81       	ld	r24, Z
+  b2:	80 62       	ori	r24, 0x20	; 32
+  b4:	8c 93       	st	X, r24
+  b6:	88 95       	sleep
+  b8:	a5 e5       	ldi	r26, 0x55	; 85
+  ba:	b0 e0       	ldi	r27, 0x00	; 0
+  bc:	e5 e5       	ldi	r30, 0x55	; 85
+  be:	f0 e0       	ldi	r31, 0x00	; 0
+  c0:	80 81       	ld	r24, Z
+  c2:	8f 7d       	andi	r24, 0xDF	; 223
+  c4:	8c 93       	st	X, r24
+  c6:	f0 cf       	rjmp	.-32     	; 0xa8 <__stack+0x9>
+
+000000c8 <_exit>:
+  c8:	f8 94       	cli
+
+000000ca <__stop_program>:
+  ca:	ff cf       	rjmp	.-2      	; 0xca <__stop_program>

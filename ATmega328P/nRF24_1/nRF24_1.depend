@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1388055625 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\nrf24_1\nrf24l01.c
+	"nrf24l01.h"
+
+1388055625 d:\gdinsoo223\coding\ard\winavr\atmega328p\nrf24_1\nrf24l01.h
+	"nrf24l01_hw.h"
+	"nrf24l01_regs.h"
+
+1388055625 d:\gdinsoo223\coding\ard\winavr\atmega328p\nrf24_1\nrf24l01_hw.h
+
+1388055625 d:\gdinsoo223\coding\ard\winavr\atmega328p\nrf24_1\nrf24l01_regs.h
+
+1191263748 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\nrf24_1\main.c
+	<avr/io.h>
+

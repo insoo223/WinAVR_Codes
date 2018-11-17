@@ -1,0 +1,56 @@
+
+bin\Release\BlinkLED.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000046  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	0e c0       	rjmp	.+28     	; 0x20 <__bad_interrupt>
+   4:	0d c0       	rjmp	.+26     	; 0x20 <__bad_interrupt>
+   6:	0c c0       	rjmp	.+24     	; 0x20 <__bad_interrupt>
+   8:	0b c0       	rjmp	.+22     	; 0x20 <__bad_interrupt>
+   a:	0a c0       	rjmp	.+20     	; 0x20 <__bad_interrupt>
+   c:	09 c0       	rjmp	.+18     	; 0x20 <__bad_interrupt>
+   e:	08 c0       	rjmp	.+16     	; 0x20 <__bad_interrupt>
+  10:	07 c0       	rjmp	.+14     	; 0x20 <__bad_interrupt>
+  12:	06 c0       	rjmp	.+12     	; 0x20 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+  1c:	02 d0       	rcall	.+4      	; 0x22 <main>
+  1e:	11 c0       	rjmp	.+34     	; 0x42 <_exit>
+
+00000020 <__bad_interrupt>:
+  20:	ef cf       	rjmp	.-34     	; 0x0 <__vectors>
+
+00000022 <main>:
+  22:	81 e0       	ldi	r24, 0x01	; 1
+  24:	87 bb       	out	0x17, r24	; 23
+  26:	41 e0       	ldi	r20, 0x01	; 1
+  28:	20 ef       	ldi	r18, 0xF0	; 240
+  2a:	30 e0       	ldi	r19, 0x00	; 0
+  2c:	88 b3       	in	r24, 0x18	; 24
+  2e:	84 27       	eor	r24, r20
+  30:	88 bb       	out	0x18, r24	; 24
+  32:	8c ed       	ldi	r24, 0xDC	; 220
+  34:	95 e0       	ldi	r25, 0x05	; 5
+  36:	f9 01       	movw	r30, r18
+  38:	31 97       	sbiw	r30, 0x01	; 1
+  3a:	f1 f7       	brne	.-4      	; 0x38 <__CCP__+0x4>
+  3c:	01 97       	sbiw	r24, 0x01	; 1
+  3e:	d9 f7       	brne	.-10     	; 0x36 <__CCP__+0x2>
+  40:	f5 cf       	rjmp	.-22     	; 0x2c <main+0xa>
+
+00000042 <_exit>:
+  42:	f8 94       	cli
+
+00000044 <__stop_program>:
+  44:	ff cf       	rjmp	.-2      	; 0x44 <__stop_program>

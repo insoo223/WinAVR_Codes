@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1433117463 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<avr/sleep.h>
+	"externs.h"
+	"defines.h"
+	<util/delay.h>
+
+1432346208 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\dht11\dht11_atmega328p.c
+	<stdio.h>
+	<stdlib.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	"../dht11/DHT11_ATmega328p.h"
+
+1428403536 d:\gdinsoo223\coding\ard\winavr\atmega328p\dht\dht.h
+	<stdio.h>
+	<avr/io.h>
+
+1432977478 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\globals.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"defines.h"
+
+1432937259 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\intrpt.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<avr/sleep.h>
+	"externs.h"
+	"defines.h"
+	<util/delay.h>
+
+1433117052 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\strfunc.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<avr/sleep.h>
+	"externs.h"
+	"defines.h"
+	<util/delay.h>
+
+1433118061 d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\externs.h
+
+1432465049 d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\defines.h
+
+1433073207 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\util.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<avr/sleep.h>
+	"externs.h"
+	"defines.h"
+	<util/delay.h>
+
+1432277209 d:\gdinsoo223\coding\ard\winavr\atmega328p\dht11\dht11_atmega328p.h
+	<stdio.h>
+	<avr/io.h>
+
+1433072726 source:d:\gdinsoo223\coding\ard\winavr\atmega328p\lcd\words.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"defines.h"
+

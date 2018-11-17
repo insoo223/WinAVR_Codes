@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1429001171 source:d:\gdinsoo223\coding\ard\winavr\blinkled\main.c
+	<avr/io.h>
+	<util/delay.h>
+
+1429001805 source:d:\gdinsoo223\coding\ard\winavr\attiny13\blinkled\main.c
+	<avr/io.h>
+	<util/delay.h>
+
+1429001805 source:d:\gdcoding\coding\ard\winavr\attiny13\blinkled\main.c
+	<avr/io.h>
+	<util/delay.h>
+

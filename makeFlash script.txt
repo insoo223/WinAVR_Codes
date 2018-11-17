@@ -1,0 +1,70 @@
+
+        PORTB|=_BV(2);
+
+	PORTB&=~_BV(2);
+
+avr-size *.hex
+
+
+avrdude -C ../etc/avrdude.conf -c avrisp -P COM4 -b 19200 -p m8 -v
+avrdude -C ../etc/avrdude.conf -c usbtiny -p attiny2313 -v
+
+<ATtiny2313A>
+D:
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny2313\BlinkLED\bin\Release
+avrdude -c usbtiny -P usb -p attiny2313 -U flash:w:BlinkLED.elf.hex:i
+avrdude -c usbasp -P usb -p attiny2313 -U flash:w:BlinkLED.elf.hex:i
+
+avrdude -c usbasp -P usb -p attiny2313 -U flash:w:usbtinyfw20.hex:i
+
+<Arduino UNO>
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATmega328P\ArduinoUNO\bin\Release
+avrdude -c usbtiny -P usb -p atmega328P -U flash:w:ArduinoUNO.elf.hex:i
+
+<ATmega328P>
+# Ext 16Mhz OSC
+avrdude -c usbtiny -P usb -p atmega328P -U lfuse:w:0x5e:m -U hfuse:w:0xd1:m
+
+# int 8Mhz OSC
+avrdude -c usbtiny -P usb -p atmega328P -U lfuse:w:0x62:m -U hfuse:w:0xd1:m
+
+D:
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATmega328P\LCD\bin\Release
+avrdude -c usbtiny -P usb -p atmega328P -U flash:w:LCD.elf.hex:i
+
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATmega328P\nRF24\bin\Release
+avrdude -c usbtiny -P usb -p atmega328P -U flash:w:nRF24.elf.hex:i
+avrdude -c usbasp -P usb -p atmega328P -U flash:w:nRF24.elf.hex:i
+
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATmega328P\BlinkLED\GoodHEX_328P
+avrdude -c usbtiny -P usb -p atmega328P -U flash:w:BlinkLED_PB0_328P.hex:i
+
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATmega328P\BlinkLED\bin\Release
+avrdude -c usbtiny -P usb -p atmega328P -U flash:w:BlinkLED.elf.hex:i
+
+OBK10187@hanmail.net n
+
+<ATtiny13>
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:RF_Poll_CD4021.hex:i
+
+D:
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny13\RF315remote\bin\Release
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:RF315remote.elf.hex:i
+
+D:
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny13\DHT11\bin\Release
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:DHT11.elf.hex:i
+avrdude -c usbasp -P usb -p attiny13 -U flash:w:DHT11.elf.hex:i
+
+D:
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny13\MultiTimer\bin\Release
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:MultiTimer.elf.hex:i
+avrdude -c usbasp -P usb -p attiny13 -U flash:w:MultiTimer.elf.hex:i
+
+cd D:\GDcoding\Coding\Ard\WinAVR\ATtiny13\MultiTimer\bin\Release
+
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny13\sleep\bin\Release
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:sleep.elf.hex:i
+
+cd D:\GDinsoo223\Coding\Ard\WinAVR\ATtiny13\BlinkLED\bin\Release
+avrdude -c usbtiny -P usb -p attiny13 -U flash:w:BlinkLED.elf.hex:i

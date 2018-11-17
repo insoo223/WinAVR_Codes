@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="..\DHT11\DHT11_ATmega328p.c" open="0" top="0" tabpos="8">
+		<Cursor position="2000" topLine="74" />
+	</File>
+	<File name="defines.h" open="1" top="0" tabpos="2">
+		<Cursor position="221" topLine="0" />
+	</File>
+	<File name="externs.h" open="1" top="0" tabpos="3">
+		<Cursor position="2750" topLine="76" />
+	</File>
+	<File name="globals.c" open="1" top="0" tabpos="4">
+		<Cursor position="749" topLine="29" />
+	</File>
+	<File name="intrpt.c" open="1" top="0" tabpos="5">
+		<Cursor position="2052" topLine="60" />
+	</File>
+	<File name="main.c" open="1" top="1" tabpos="1">
+		<Cursor position="1932" topLine="64" />
+	</File>
+	<File name="strFunc.c" open="1" top="0" tabpos="6">
+		<Cursor position="2467" topLine="87" />
+	</File>
+	<File name="util.c" open="1" top="0" tabpos="7">
+		<Cursor position="4792" topLine="154" />
+	</File>
+	<File name="words.c" open="1" top="0" tabpos="8">
+		<Cursor position="4399" topLine="74" />
+	</File>
+</CodeBlocks_layout_file>

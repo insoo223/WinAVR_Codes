@@ -1,0 +1,91 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LBB14:
+  24               	.LBB15:
+  25               	.LM2:
+  26 0000 529A      		sbi 42-32,2
+  27               	.LBE15:
+  28               	.LBE14:
+  29               	.LM3:
+  30 0002 44E0      		ldi r20,lo8(4)
+  31               	.LBB16:
+  32               	.LBB17:
+  33               	.LBB18:
+  34               	.LBB19:
+  35               	.LM4:
+  36 0004 20E9      		ldi r18,lo8(400)
+  37 0006 31E0      		ldi r19,hi8(400)
+  38               	.LVL0:
+  39               	.L3:
+  40               	.LBE19:
+  41               	.LBE18:
+  42               	.LBE17:
+  43               	.LBE16:
+  44               	.LM5:
+  45 0008 8BB1      		in r24,43-32
+  46               	.LVL1:
+  47 000a 8427      		eor r24,r20
+  48 000c 8BB9      		out 43-32,r24
+  49 000e 80E1      		ldi r24,lo8(10000)
+  50 0010 97E2      		ldi r25,hi8(10000)
+  51               	.LVL2:
+  52               	.L2:
+  53               	.LBB23:
+  54               	.LBB22:
+  55               	.LBB21:
+  56               	.LBB20:
+  57               	.LM6:
+  58 0012 F901      		movw r30,r18
+  59               	/* #APP */
+  60               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  61 0014 3197      		1: sbiw r30,1
+  62 0016 01F4      		brne 1b
+  63               	 ;  0 "" 2
+  64               	/* #NOAPP */
+  65               	.LBE20:
+  66               	.LBE21:
+  67               	.LM7:
+  68 0018 0197      		sbiw r24,1
+  69               	.LM8:
+  70 001a 01F4      		brne .L2
+  71 001c 00C0      		rjmp .L3
+  72               	.LBE22:
+  73               	.LBE23:
+  74               	.LFE6:
+  76               	.global	initIO
+  78               	initIO:
+  79               	.LFB7:
+  80               	.LM9:
+  81               	/* prologue: function */
+  82               	/* frame size = 0 */
+  83               	.LM10:
+  84 001e 529A      		sbi 42-32,2
+  85               	/* epilogue start */
+  86               	.LM11:
+  87 0020 0895      		ret
+  88               	.LFE7:
+ 122               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:2      *ABS*:0000003f __SREG__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:5      *ABS*:00000034 __CCP__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:18     .text:00000000 main
+C:\Users\insoo\AppData\Local\Temp/ccgqzLnl.s:78     .text:0000001e initIO
+
+NO UNDEFINED SYMBOLS

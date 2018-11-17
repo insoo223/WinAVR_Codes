@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1432099827 source:d:\gdinsoo223\coding\ard\winavr\attiny13\rf315remote\main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<util/delay.h>
+	<avr/sleep.h>
+

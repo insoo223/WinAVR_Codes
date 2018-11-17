@@ -1,0 +1,75 @@
+   1               		.file	"BlinkLED.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 81E0      		ldi r24,lo8(1)
+  25 0002 87BB      		out 55-32,r24
+  26               	.LM3:
+  27 0004 41E0      		ldi r20,lo8(1)
+  28               	.LBB12:
+  29               	.LBB13:
+  30               	.LBB14:
+  31               	.LBB15:
+  32               	.LM4:
+  33 0006 20EF      		ldi r18,lo8(240)
+  34 0008 30E0      		ldi r19,hi8(240)
+  35               	.LVL0:
+  36               	.L3:
+  37               	.LBE15:
+  38               	.LBE14:
+  39               	.LBE13:
+  40               	.LBE12:
+  41               	.LM5:
+  42 000a 88B3      		in r24,56-32
+  43               	.LVL1:
+  44 000c 8427      		eor r24,r20
+  45 000e 88BB      		out 56-32,r24
+  46 0010 84EF      		ldi r24,lo8(500)
+  47 0012 91E0      		ldi r25,hi8(500)
+  48               	.LVL2:
+  49               	.L2:
+  50               	.LBB19:
+  51               	.LBB18:
+  52               	.LBB17:
+  53               	.LBB16:
+  54               	.LM6:
+  55 0014 F901      		movw r30,r18
+  56               	/* #APP */
+  57               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  58 0016 3197      		1: sbiw r30,1
+  59 0018 01F4      		brne 1b
+  60               	 ;  0 "" 2
+  61               	/* #NOAPP */
+  62               	.LBE16:
+  63               	.LBE17:
+  64               	.LM7:
+  65 001a 0197      		sbiw r24,1
+  66               	.LM8:
+  67 001c 01F4      		brne .L2
+  68 001e 00C0      		rjmp .L3
+  69               	.LBE18:
+  70               	.LBE19:
+  71               	.LFE6:
+  97               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 BlinkLED.c
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:2      *ABS*:0000003f __SREG__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:3      *ABS*:0000003e __SP_H__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:4      *ABS*:0000003d __SP_L__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:5      *ABS*:00000034 __CCP__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\insoo\AppData\Local\Temp/cceJUEJO.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS
